@@ -1,0 +1,15 @@
+<!-- generate_token.html -->
+
+<button id="generate-token-button">Generate Token</button>
+<div id="token-display"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $("#generate-token-button").click(function() {
+        $.get("/generate_token/", function(data) {
+            $("#token-display").text("Your token: " + data.token);
+        }).fail(function() {
+            $("#token-display").text("Failed to generate token.");
+        });
+    });
+</script>
